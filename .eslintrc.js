@@ -9,9 +9,9 @@ module.exports = {
 		es6    : true
 	},
 	//extends 指定继承的配置
-	extends: ["plugin:vue/essential"],
+	extends      : ["plugin:vue/essential"],
 	//plugins 指定使用的插件
-	plugins: ["@typescript-eslint"],
+	plugins      : ["@typescript-eslint"],
 	// parserOptions 指定解析器选项
 	parserOptions: { parser: "babel-eslint" },
 	plugins      : ["vue"],
