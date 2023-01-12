@@ -1,12 +1,12 @@
 <template>
-	<div class="header warp">
+	<header class="header warp">
 		<h1>
 			<img src="../assets/img/indexLogo.6f8ac4f0.png" alt="" />
 		</h1>
 		<!-- 导航与搜索 -->
 		<div class="nav">
 			<ul>
-				<li>
+				<li class="active">
 					首页
 				</li>
 				<li>
@@ -27,7 +27,7 @@
 			<input type="text" placeholder="请输入搜索内容" />
 			<button>搜索</button>
 		</div>
-	</div>
+	</header>
 </template>
 
 <script>
@@ -53,16 +53,23 @@ export default {
 		ul {
 			li {
 				float: left;
-				margin-left: 20px;
-				font-size: 16px;
+				margin: 0 20px;
+				font-size: 15px;
 				color: $aw-color-gray-1;
 				line-height: 100px;
+				cursor: pointer;
+				&:hover {
+					color: #0a328d;
+				}
+			}
+			.active {
+				color: #0a328d;
+				font-weight: bold;
 			}
 		}
 	}
 	.search {
 		float: right;
-		margin-right: 50px;
 		input {
 			width: 300px;
 			height: 40px;
