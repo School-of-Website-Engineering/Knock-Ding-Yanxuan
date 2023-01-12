@@ -3,6 +3,9 @@ import App from "./App.vue"
 import store from "./store"
 import router from "./router"
 
+//全局样式表
+import "./assets/scss/global.scss";
+
 Vue.config.productionTip = false
 
 new Vue({

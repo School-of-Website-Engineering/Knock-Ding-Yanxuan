@@ -5,7 +5,7 @@
 				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
 					<div class="footer-box one">
 						<div class="logo">
-							<img src="../Footer/image/Logo.png" alt="Markpro" />
+							<img src="Footer/image/Logo.png" alt="Markpro" />
 						</div>
 						<p class="text">
 							本网站由CodeLing团队成员搭建完成。

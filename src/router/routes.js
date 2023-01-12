@@ -15,7 +15,7 @@ export default [
 	// {
 	// 	path     : "/home",
 	// 	component: () =>
-	// 		import(/* webpackChunkName: "login_home_welcome" */ "@/components/Home"),
+	// 		import(/* webpackChunkName: "login_home_welcome" */ "@/components/Home.vue"),
 	// 	name    : "home",
 	// 	redirect: "/welcome",
 	// 	children: [
