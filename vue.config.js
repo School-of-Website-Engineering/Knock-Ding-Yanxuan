@@ -1,14 +1,10 @@
 // vue.config.js
 
 const { defineConfig } = require("@vue/cli-service");
-module.exports = defineConfig({
-	lintOnSave           : false,
-	transpileDependencies: true
-});
+module.exports = defineConfig({transpileDependencies: true});
 
 module.exports = {
-	lintOnSave: false,
-	publicPath: "/Knock-Ding-Yanxuan/",
+	publicPath: "/Knock-Ding-Yanxuan/"
 	// publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
 
 	// //代理服务器
