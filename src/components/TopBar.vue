@@ -1,5 +1,5 @@
 <template>
-	<div class="top-bar">
+	<nav class="top-bar">
 		<div class="warp">
 			<div class="left">欢迎来到叩丁狼积分商城</div>
 			<div class="right">
@@ -15,7 +15,7 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</nav>
 </template>
 
 <script>

@@ -1,105 +1,30 @@
 <template>
-	<footer class="footer-area two">
-		<div class="container">
-			<div class="row justify-content-between">
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-					<div class="footer-box one">
-						<div class="logo">
-							<img src="Footer/image/Logo.png" alt="Markpro" />
-						</div>
-						<p class="text">
-							本网站由CodeLing团队成员搭建完成。
-						</p>
-
-						<div class="social">
-							<a href="#0"
-								><i class="fas fa-star" style="color: yellow;"></i
-							></a>
-							<a href="#0"
-								><i class="fas fa-star" style="color: yellow;"></i
-							></a>
-							<a href="#0"
-								><i class="fas fa-star" style="color: yellow;"></i
-							></a>
-							<a href="#0"
-								><i class="fas fa-star" style="color: yellow;"></i
-							></a>
-							<a href="#0"
-								><i class="fas fa-star" style="color: yellow;"></i
-							></a>
-						</div>
-					</div>
+	<footer>
+		<div class="integralmall-footer">
+			<div class="footer-content warp">
+				<div class="footer-logo">
+					<img
+						src="http://sc.wolfcode.cn/assets/integralMall/img/index/slogan.png"
+						alt=""
+					/>
+					<p>
+						叩丁狼是一家专注于培养高级IT技术人才，为学员提供定制化IT职业规划方案及意见咨询服务的教育科技公司，为您提供海量优质课程，以及创新的线上线下学习体验，帮助您获得全新的个人发展和能力提升。
+					</p>
 				</div>
-				<div class="col-lg-2 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-					<div class="footer-box two">
-						<h4 class="lasthead">网站结构</h4>
-						<div class="footer-list">
-							<ul>
-								<li><a href="#0"> 模组列表 </a></li>
-								<li><a href="#0"> 开发团队 </a></li>
-								<li><a href="#0"> 关于我们 </a></li>
-								<li><a href="#0"> 网页致谢 </a></li>
-								<li><a href="#0"> 加入团队 </a></li>
-								<li><a href="#0"> 联系我们 </a></li>
-							</ul>
-						</div>
-					</div>
+				<div class="footer-relation">
+					<ul class="relation-list">
+						<li class="relation-text footer-wx">微信公众号</li>
+						<li class="relation-text">
+							<a href="#" target="_blank" class="footer-xl"
+								>新浪微博</a
+							>
+						</li>
+						<li class="relation-text footer-waiter">在线客服</li>
+					</ul>
 				</div>
-				<div class="col-lg-2 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-					<div class="footer-box three">
-						<h4 class="lasthead">模组介绍</h4>
-						<div class="footer-list">
-							<ul>
-								<li>
-									<router-link class="drop" to="rts">星河征途</router-link>
-								</li>
-								<li>
-									<router-link class="drop" to="pxd">魔绫地牢</router-link>
-								</li>
-								<li>
-									<router-link class="drop" to="tml">天狱之境</router-link>
-								</li>
-								<li>
-									<router-link class="drop" to="rts">星河征途-RTS</router-link>
-								</li>
-								<li>
-									<router-link class="drop" to="pxd">魔绫地牢-PXD</router-link>
-								</li>
-								<li>
-									<router-link class="drop" to="tml">天狱之境-TML</router-link>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-					<div class="footer-box none">
-						<h4 class="lasthead">团队介绍</h4>
-						<div class="footer-list">
-							<ul>
-								<li><a href="#0"> 星河团队 </a></li>
-								<li><a href="#0"> 魔凌团队 </a></li>
-								<li><a href="#0"> 天狱团队 </a></li>
-								<li>
-									<a
-										href="https://jq.qq.com/?_wv=1027&k=A7ze2Tgk"
-										target="_blank"
-									>
-										Codeling团队
-									</a>
-								</li>
-								<li>
-									<a
-										href="https://github.com/School-of-Website-Engineering/Rosy-DR-Code-Ling"
-										target="_blank"
-									>
-										网站项目分享
-									</a>
-								</li>
-								<li><a href="#0"> 工作室 </a></li>
-							</ul>
-						</div>
-					</div>
+				<div class="footer-phone">
+					<p>全国免费咨询热线：</p>
+					<h2>020-85628002</h2>
 				</div>
 			</div>
 		</div>
@@ -110,4 +35,87 @@
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.integralmall-footer {
+	width: 100%;
+	height: 240px;
+	background-color: #242b39;
+}
+.footer-content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.footer-logo {
+	width: 426px;
+	padding: 30px 0 0 0;
+	box-sizing: border-box;
+}
+img {
+	border: none;
+}
+.footer-logo p {
+	font-family: MicrosoftYaHei;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #7d879a;
+	padding-top: 22px;
+	box-sizing: border-box;
+}
+.relation-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.relation-text {
+	padding: 0 8px;
+	box-sizing: border-box;
+	font-family: MicrosoftYaHei;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 21px;
+	letter-spacing: 0px;
+	color: #7d879a;
+	position: relative;
+	cursor: pointer;
+	border-right: 1px solid #7d879a;
+}
+.footer-xl {
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 21px;
+	letter-spacing: 0px;
+	color: #7d879a;
+}
+.footer-phone {
+	margin-top: 60px;
+}
+.footer-phone h2 {
+	font-family: SourceHanSansSC-Bold;
+	font-size: 28px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	margin-top: 7px;
+	line-height: 24px;
+}
+.footer-phone p {
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #7d879a;
+}
+.footer-relation {
+    flex: 1;
+    margin-top: 86px;
+}
+</style>

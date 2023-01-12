@@ -4,6 +4,8 @@ const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({transpileDependencies: true});
 
 module.exports = {
+	//关闭eslint
+	lintOnSave: false,
 	publicPath: "/Knock-Ding-Yanxuan/"
 	// publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
 
