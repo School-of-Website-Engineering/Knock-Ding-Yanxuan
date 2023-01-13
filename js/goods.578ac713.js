@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkknock_ding_yanxuan"]=self["webpackChunkknock_ding_yanxuan"]||[]).push([[795],{8519:function(n,u,e){e.r(u),e.d(u,{default:function(){return l}});var c=function(){var n=this,u=n._self._c;return u("div")},t=[],a={},r=a,i=e(1001),k=(0,i.Z)(r,c,t,!1,null,"2c70eb44",null),l=k.exports}}]);
+//# sourceMappingURL=goods.578ac713.js.map
