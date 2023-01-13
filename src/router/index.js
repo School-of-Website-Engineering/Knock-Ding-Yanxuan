@@ -39,7 +39,7 @@ VueRouter.prototype.replace = function(location, resolve, reject) {
 };
 
 
-let router = new VueRouter({
+export default  new VueRouter({
 	routes,
 	scrollBehavior() {
 		return { y: 0 };
@@ -48,5 +48,3 @@ let router = new VueRouter({
 	mode: "history"
 });
 
-
-export default router;

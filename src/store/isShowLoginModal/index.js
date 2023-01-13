@@ -1,10 +1,10 @@
 export default {
 	namespaced: true,
-	state     : { isShowLoginModal: true },
+	actions   : {},
 	mutations : {
 		setIsShowLoginModal(state, isShowLoginModal) {
 			state.isShowLoginModal = isShowLoginModal;
 		}
 	},
-	actions: {}
+	state: { isShowLoginModal: false }
 };
