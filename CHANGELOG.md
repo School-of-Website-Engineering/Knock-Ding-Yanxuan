@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.0.2...v1.0.3) (2023-01-13)
+
+
+### update
+
+* 使用Vuex状态管理 ([b406c25](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/commit/b406c254c9d7af03ff5b29778cd51c4625004c05))
+
 ## [1.0.2](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.0.1...v1.0.2) (2023-01-13)
 
 
