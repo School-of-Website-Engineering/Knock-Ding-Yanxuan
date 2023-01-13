@@ -1,12 +1,20 @@
 <template>
 	<div class="login-modal">
-		<div class="mask"></div>
+		<div class="mask" @click="this.close"></div>
 		<div class="login-box"></div>
 	</div>
 </template>
 
 <script>
-export default {};
+import { mapMutations } from "vuex";
+export default {
+	methods: {
+		...mapMutations({setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal"}),
+		close() {
+			this.setIsShowLoginModal(false);
+		}
+	}
+};
 </script>
 
 <style lang="scss" scoped>

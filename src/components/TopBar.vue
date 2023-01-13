@@ -11,7 +11,7 @@
 					<li>我的鸡腿：--</li>
 					<li>获取鸡腿</li>
 					<li>叩丁狼官网</li>
-					<li class="btn">登录</li>
+					<li class="btn" @click="login">登录</li>
 				</ul>
 			</div>
 		</div>
@@ -19,7 +19,17 @@
 </template>
 
 <script>
-export default { name: "TopBar" };
+import { mapMutations } from "vuex";
+export default {
+	name   : "TopBar",
+	methods: {
+		...mapMutations({setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal"}),
+		login() {
+			// 触发登录弹窗
+			this.setIsShowLoginModal(true);
+		}
+	}
+};
 </script>
 
 <style scoped lang="scss">
