@@ -5,8 +5,10 @@
 		<Header></Header>
 		<!-- 路由出口 -->
 		<router-view></router-view>
-    <Home></Home>
 		<Footer></Footer>
+
+		<!-- 登录 -->
+		<Login v-show="isShowLoginModal"></Login>
 	</div>
 </template>
 
@@ -15,16 +17,27 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TopBar from "./components/TopBar";
-import Home from "./views/Home";
+import Login from "./components/Login";
+import { mapState } from "vuex";
 
 export default {
+	data() {
+		return {};
+	},
 	name      : "App",
 	//注册组件
 	components: {
 		TopBar,
 		Header,
 		Footer,
-		Home
+		Login
+	},
+	// 计算属性
+	computed: {
+		...mapState({
+			isShowLoginModal: (state) =>
+				state.isShowLoginModal.isShowLoginModal
+		})
 	}
 };
 </script>
