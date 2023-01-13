@@ -6,19 +6,34 @@
 		<!-- 导航与搜索 -->
 		<div class="nav">
 			<ul>
-				<li class="active">
+				<li
+					@click="$router.push('/home')"
+					:class="$route.path === '/home' ? 'active' : ''"
+				>
 					首页
 				</li>
-				<li>
+				<li
+					@click="$router.push('/goods')"
+					:class="$route.path === '/goods' ? 'active' : ''"
+				>
 					全部商品
 				</li>
-				<li>
+				<li
+					@click="$router.push('/user')"
+					:class="$route.path === '/user' ? 'active' : ''"
+				>
 					个人中心
 				</li>
-				<li>
+				<li
+					@click="$router.push('/order')"
+					:class="$route.path === '/order' ? 'active' : ''"
+				>
 					我的订单
 				</li>
-				<li>
+				<li
+					@click="$router.push('/free')"
+					:class="$route.path === '/free' ? 'active' : ''"
+				>
 					专属福利
 				</li>
 			</ul>

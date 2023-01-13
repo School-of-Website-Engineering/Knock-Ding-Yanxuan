@@ -2,31 +2,40 @@ export default [
 	//重定向
 	{
 		path    : "/",
-		redirect: ""
+		redirect: "Home"
+	},
+	//首页组件
+	{
+		path     : "/home",
+		component: () =>
+			import(/* webpackChunkName: "home" */ "@/views/Home"),
+		name: "home"
+	},
+	//全部商品组件
+	{
+		path     : "/goods",
+		component: () =>
+			import(/* webpackChunkName: "goods" */ "@/views/Goods"),
+		name: "goods"
+	},
+	//个人中心组件
+	{
+		path     : "/user",
+		component: () => import(/* webpackChunkName: "user" */ "@/views/User"),
+		name     : "user"
+	},
+	//订单组件
+	{
+		path     : "/order",
+		component: () =>
+			import(/* webpackChunkName: "order" */ "@/views/Order"),
+		name: "order"
+	},
+	//free
+	{
+		path     : "/free",
+		component: () =>
+			import(/* webpackChunkName: "free" */ "@/views/Free"),
+		name: "free"
 	}
-	// //导入登录组件
-	// {
-	// 	path     : "/login",
-	// 	component: () =>
-	// 		import(/* webpackChunkName: "login_home_welcome" */ "@/components/Login"),
-	// 	name: "login"
-	// },
-	// //导入主页组件
-	// {
-	// 	path     : "/home",
-	// 	component: () =>
-	// 		import(/* webpackChunkName: "login_home_welcome" */ "@/components/Home.vue"),
-	// 	name    : "home",
-	// 	redirect: "/welcome",
-	// 	children: [
-	// 		{
-	// 			//导入欢迎组件
-	// 			path     : "/welcome",
-	// 			component: () =>
-	// 				import(
-	// 					/* webpackChunkName: "login_home_welcome" */ "@/components/Welcome"
-	// 				),
-	// 			name: "welcome"
-	// 		},
-	// }
 ];
