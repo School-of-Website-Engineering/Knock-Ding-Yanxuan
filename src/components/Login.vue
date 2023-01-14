@@ -27,24 +27,34 @@
 			<div class="login-body">
 				<div class="from" v-show="isShowFrom">
 					<div class="input-box">
-						<input type="text" placeholder="请输入手机号" />
+						<input
+							type="text"
+							v-model="phoneNum"
+							placeholder="请输入手机号"
+						/>
 					</div>
 					<slide-verify
 						:l="42"
 						:r="10"
 						:w="359"
 						:h="155"
-						slider-text="向右滑动"
-						@success="onSuccess"
+						:slider-text="msg"
+						@success="onSuccess()"
 						@fail="onFail"
 						@refresh="onRefresh"
 					></slide-verify>
 					<br />
 					<div class="input-codebox">
-						<input type="text" placeholder="请输入验证码" />
-						<div class="get-code">获取验证码</div>
+						<input
+							ref="phone"
+							type="text"
+							placeholder="请输入验证码"
+						/>
+						<div class="get-code" @click="onGetCode">
+							{{ codeText }}
+						</div>
 					</div>
-					<button class="btn">
+					<button class="btn" @click="submitLogin">
 						登录
 					</button>
 				</div>
@@ -56,9 +66,17 @@
 
 <script>
 import { mapMutations } from "vuex";
+import { reqGetSmsCode } from "@/request/api";
 export default {
 	data() {
-		return { isShowFrom: true };
+		return {
+			isShowFrom: true,
+			msg       : "请按住滑块，拖动对应位置",
+			//手机号
+			phoneNum  : "",
+			//验证码
+			codeText  : "获取验证码"
+		};
 	},
 	methods: {
 		...mapMutations({setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal"}),
@@ -70,9 +88,55 @@ export default {
 		},
 		onFail() {
 			this.msg = "验证失败";
+			this.onRefresh();
 		},
 		onRefresh() {
-			this.msg = "刷新成功";
+			this.msg = "再试一次";
+		},
+		// 提交登录
+		submitLogin() {
+			//验证图片验证码
+			if (this.msg === "再试一次" || this.msg === "验证失败") {
+				this.$message.error("请先验证图片验证码");
+				return;
+			}
+		},
+		//倒计时
+		countDown() {
+			//倒计时
+			let count = 60;
+			let timer = setInterval(() => {
+				count--;
+				this.codeText = count + "s";
+				if (count === 0) {
+					clearInterval(timer);
+					this.codeText = "获取验证码";
+				}
+			}, 1000);
+		},
+		// 获取验证码
+		async onGetCode() {
+			//正则验证手机号
+			if (!/^1[3456789]\d{9}$/.test(this.phoneNum)) {
+				this.$message.error("请输入正确的手机号");
+				this.$refs.phone.focus();
+				return;
+			}
+			//验证图片验证码
+			if (this.msg !== "验证成功") {
+				this.$message.error("请验证图片验证码");
+				return;
+			}
+			//发送验证码
+			let res = await reqGetSmsCode({phone: this.phoneNum.trim()});
+			console.log(res);
+			if (res.code === 0 || res.code === 400) {
+				this.countDown();
+				this.$message.success("验证码已发送");
+			}
+			else {
+				this.$message.error(res.msg);
+			}
 		}
 	}
 };
@@ -203,8 +267,8 @@ export default {
 		box-sizing: border-box;
 	}
 	.slide-verify-block {
-		width: 85px;
-		height: 136px;
+		width: 70px;
+		height: 154px;
 	}
 	.slide-verify-refresh-icon {
 		top: -120px;
