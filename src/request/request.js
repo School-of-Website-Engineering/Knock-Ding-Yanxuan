@@ -18,6 +18,7 @@ instance.interceptors.request.use(
 		return config;
 	},
 	(error) => {
+		 this.$message.error("请求超时");
 		return Promise.reject(error);
 	}
 );
@@ -29,6 +30,7 @@ instance.interceptors.response.use(
 		return response.data;
 	},
 	(error) => {
+		this.$message.error("请求失败");
 		return Promise.reject(error);
 	}
 );

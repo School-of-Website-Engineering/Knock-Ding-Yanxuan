@@ -10,6 +10,11 @@ import "./assets/scss/global.scss";
 import SlideVerify from "vue-monoplasty-slide-verify";
 Vue.use(SlideVerify);
 
+//引入element-ui
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(ElementUI);
+
 Vue.config.productionTip = false
 
 new Vue({
