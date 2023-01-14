@@ -5,4 +5,7 @@ import qs from "qs";
 export const reqGetRecommended = () => request.get("/products/recommend");
 
 //短信验证码
-export const reqGetSmsCode = (phone) => request.post("sendSMS", qs.stringify( phone ));
+export const reqGetSmsCode = (params) => request.post("/sendSMS", qs.stringify( params ));
+
+//登录
+export const reqLogin = (params) => request.post("/phoneRegin", qs.stringify( params ));

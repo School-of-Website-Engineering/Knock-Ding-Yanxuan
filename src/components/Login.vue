@@ -46,6 +46,7 @@
 					<br />
 					<div class="input-codebox">
 						<input
+							v-model="SMScode"
 							ref="phone"
 							type="text"
 							placeholder="请输入验证码"
@@ -66,16 +67,17 @@
 
 <script>
 import { mapMutations } from "vuex";
-import { reqGetSmsCode } from "@/request/api";
+import { reqGetSmsCode, reqLogin } from "@/request/api";
 export default {
 	data() {
 		return {
 			isShowFrom: true,
 			msg       : "请按住滑块，拖动对应位置",
 			//手机号
-			phoneNum  : "",
+			phoneNum  : "15918796216",
 			//验证码
-			codeText  : "获取验证码"
+			codeText  : "获取验证码",
+			SMScode   : "156"
 		};
 	},
 	methods: {
@@ -94,12 +96,43 @@ export default {
 			this.msg = "再试一次";
 		},
 		// 提交登录
-		submitLogin() {
-			//验证图片验证码
-			if (this.msg === "再试一次" || this.msg === "验证失败") {
-				this.$message.error("请先验证图片验证码");
+		async submitLogin() {
+			if (!this.verify()) {
 				return;
 			}
+			//验证用户输入的验证码是不是为空,为空就return
+			if (this.SMScode.trim() === "") {
+				this.$message.error("请输入验证码");
+				return;
+			}
+			let res = await reqLogin({
+				verifyCode: this.SMScode.trim(),
+				phone     : this.phoneNum.trim()
+			});
+			console.log(res);
+			//登录成功
+			if (res.code === 0) {
+				this.$message.success("登录成功");
+				this.close();
+				sessionStorage.setItem("token", res["x-auth-token"]);
+			}
+			else {
+				this.$message.error(res.message);
+			}
+		},
+		verify() {
+			//正则验证手机号
+			if (!/^1[3456789]\d{9}$/.test(this.phoneNum)) {
+				this.$message.error("请输入正确的手机号");
+				this.$refs.phone.focus();
+				return false;
+			}
+			//验证图片验证码
+			if (this.msg !== "验证成功") {
+				this.$message.error("请验证图片验证码");
+				return false;
+			}
+			return true;
 		},
 		//倒计时
 		countDown() {
@@ -116,21 +149,12 @@ export default {
 		},
 		// 获取验证码
 		async onGetCode() {
-			//正则验证手机号
-			if (!/^1[3456789]\d{9}$/.test(this.phoneNum)) {
-				this.$message.error("请输入正确的手机号");
-				this.$refs.phone.focus();
-				return;
-			}
-			//验证图片验证码
-			if (this.msg !== "验证成功") {
-				this.$message.error("请验证图片验证码");
+			if (!this.verify()) {
 				return;
 			}
 			//发送验证码
-			let res = await reqGetSmsCode({phone: this.phoneNum.trim()});
-			console.log(res);
-			if (res.code === 0 || res.code === 400) {
+			let res = await reqGetSmsCode({ phone: this.phoneNum.trim() });
+			if (res.code == 0 || res.code == 400) {
 				this.countDown();
 				this.$message.success("验证码已发送");
 			}

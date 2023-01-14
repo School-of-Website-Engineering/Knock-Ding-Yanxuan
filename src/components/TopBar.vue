@@ -11,7 +11,16 @@
 					<li>我的鸡腿：--</li>
 					<li>获取鸡腿</li>
 					<li>叩丁狼官网</li>
-					<li class="btn" @click="login">登录</li>
+					<li class="btn" @click="login" v-show="!isLogined">登录</li>
+					<li class="cart-btn" v-show="isLogined">
+						<img
+							class="cart-img"
+							src="../assets/img/cart.png"
+							alt=""
+						/>
+						<span>购物车</span>
+						<b>{{ cartTotal }}</b>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -19,8 +28,11 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 export default {
+	data() {
+		return { cartTotal: 0 };
+	},
 	name   : "TopBar",
 	methods: {
 		...mapMutations({setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal"}),
@@ -28,7 +40,8 @@ export default {
 			// 触发登录弹窗
 			this.setIsShowLoginModal(true);
 		}
-	}
+	},
+	computed: {...mapState({isLogined: (state) => state.loginStatus.isLogined})}
 };
 </script>
 
@@ -47,7 +60,8 @@ export default {
 		.right {
 			ul {
 				display: flex;
-				width: 520px;
+				width: 660px;
+				justify-content: space-evenly;
 				li {
 					line-height: 40px;
 					margin-left: 20px;
@@ -69,6 +83,33 @@ export default {
 					width: 70px;
 					text-align: center;
 					font-size: 14px;
+				}
+				.cart-btn {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 120px;
+					height: 40px;
+					background: #0a328e;
+					cursor: pointer;
+					margin-right: 0;
+					b {
+						width: 20px;
+						background: #fd604d;
+						border-radius: 11px;
+						text-align: center;
+						line-height: 20px;
+					}
+					.cart-img {
+						width: 20px;
+						height: 20px;
+						margin-right: 0px;
+						border-radius: 0;
+					}
+					span {
+						margin-left: 8px;
+						margin-right: 6px;
+					}
 				}
 			}
 		}
