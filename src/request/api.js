@@ -12,3 +12,6 @@ export const reqLogin = (params) => request.post("/phoneRegin", qs.stringify( pa
 
 //扫码登录
 export const reqQrcodeLogin = (params) => request.post("/wechatUsers/PCLogin", qs.stringify( params ));
+
+//绑定手机号
+export const reqBindPhone = (params) => request.post("/wechatUsers/binding", qs.stringify( params ));
