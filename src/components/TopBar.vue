@@ -29,6 +29,7 @@
 
 <script>
 import { mapMutations, mapState } from "vuex";
+import { reqQrcodeLogin } from "@/request/api";
 export default {
 	data() {
 		return { cartTotal: 0 };
@@ -46,7 +47,24 @@ export default {
 	computed: {
 		...mapState({ isLogined: (state) => state.loginStatus.isLogined }),
 	},
-	created() {},
+	created() {
+		setTimeout(async () => {
+			let loginCode = this.$route.query.code;
+			console.log(loginCode);
+			if (loginCode || !loginCode) {
+				const res = await reqQrcodeLogin({ code: loginCode });
+				console.log(res);
+				if (res.code === 0) {
+					this.$message.success("登录成功");
+				} else if (res.code === 400) {
+					this.$message.error("二维码已失效,请重新扫码登录");
+				} else if (res.code === 407) {
+					this.$message.warning("请使用手机号绑定登录微信");
+					sessionStorage.setItem("loginuuid", res.uuid);
+				}
+			}
+		},100);
+	},
 };
 </script>
 
