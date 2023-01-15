@@ -7,7 +7,7 @@ import axios from "axios";
 //创建axios实例
 const instance = axios.create({
 	baseURL: "http://kumanxuan1.f3322.net:8881/cms",
-	headers: { "Content-Type": "application/json;charset=UTF-8" },
+	// headers: { "Content-Type": "application/json;charset=UTF-8" },
 	timeout: 7000 // 请求超时时间
 });
 //请求拦截器
@@ -18,7 +18,6 @@ instance.interceptors.request.use(
 		return config;
 	},
 	(error) => {
-		 this.$message.error("请求超时");
 		return Promise.reject(error);
 	}
 );
@@ -30,7 +29,6 @@ instance.interceptors.response.use(
 		return response.data;
 	},
 	(error) => {
-		this.$message.error("请求失败");
 		return Promise.reject(error);
 	}
 );
