@@ -2,7 +2,7 @@ export default [
 	//重定向
 	{
 		path    : "/",
-		redirect: "Home"
+		redirect: "home"
 	},
 	//首页组件
 	{

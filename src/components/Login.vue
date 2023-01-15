@@ -81,7 +81,10 @@ export default {
 		};
 	},
 	methods: {
-		...mapMutations({setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal"}),
+		...mapMutations({
+			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
+			setIsShowCartModal : "loginStatus/setLoginStatus"
+		}),
 		close() {
 			this.setIsShowLoginModal(false);
 		},
@@ -115,6 +118,7 @@ export default {
 				this.$message.success("登录成功");
 				this.close();
 				sessionStorage.setItem("token", res["x-auth-token"]);
+				this.setIsShowCartModal(true);
 			}
 			else {
 				this.$message.error(res.message);

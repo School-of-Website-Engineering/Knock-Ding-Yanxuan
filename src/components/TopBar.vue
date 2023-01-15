@@ -41,7 +41,7 @@ export default {
 			this.setIsShowLoginModal(true);
 		}
 	},
-	computed: {...mapState({isLogined: (state) => state.loginStatus.isLogined})}
+	computed: {...mapState({ isLogined: (state) => state.loginStatus.isLogined })}
 };
 </script>
 
