@@ -33,15 +33,20 @@ export default {
 	data() {
 		return { cartTotal: 0 };
 	},
-	name   : "TopBar",
+	name: "TopBar",
 	methods: {
-		...mapMutations({setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal"}),
+		...mapMutations({
+			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
+		}),
 		login() {
 			// 触发登录弹窗
 			this.setIsShowLoginModal(true);
-		}
+		},
 	},
-	computed: {...mapState({ isLogined: (state) => state.loginStatus.isLogined })}
+	computed: {
+		...mapState({ isLogined: (state) => state.loginStatus.isLogined }),
+	},
+	created() {},
 };
 </script>
 
