@@ -34,37 +34,43 @@ export default {
 	data() {
 		return { cartTotal: 0 };
 	},
-	name: "TopBar",
+	name   : "TopBar",
 	methods: {
 		...mapMutations({
 			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
+			setLoginStatus     : "loginStatus/setLoginStatus"
 		}),
 		login() {
 			// 触发登录弹窗
 			this.setIsShowLoginModal(true);
-		},
+		}
 	},
-	computed: {
-		...mapState({ isLogined: (state) => state.loginStatus.isLogined }),
-	},
+	computed: {...mapState({ isLogined: (state) => state.loginStatus.isLogined })},
 	created() {
-		setTimeout(async () => {
+		setTimeout(async() => {
 			let loginCode = this.$route.query.code;
-			console.log(loginCode);
-			if (loginCode || !loginCode) {
+			if (loginCode) {
 				const res = await reqQrcodeLogin({ code: loginCode });
 				console.log(res);
 				if (res.code === 0) {
 					this.$message.success("登录成功");
-				} else if (res.code === 400) {
-					this.$message.error("二维码已失效,请重新扫码登录");
-				} else if (res.code === 407) {
+					sessionStorage.setItem("token", res["x-auth-token"]);
+					this.setLoginStatus(true);
+					//清除地址栏code
+					await this.$router.push("/home");
+				}
+				else if (res.code === 400) {
+					this.$message.error(res.msg);
+					setIsShowLoginModal(true);
+				}
+				else if (res.code === 407) {
 					this.$message.warning("请使用手机号绑定登录微信");
-					sessionStorage.setItem("loginuuid", res.uuid);
+					sessionStorage.setItem("loginUuid", res.uuid);
+					setIsShowLoginModal(true);
 				}
 			}
-		},100);
-	},
+		}, 100);
+	}
 };
 </script>
 
