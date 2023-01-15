@@ -197,7 +197,6 @@ export default {
 	comments: {},
 	async created() {
 		const { data: res } = await reqGetRecommended();
-		console.log(res);
 	}
 };
 </script>

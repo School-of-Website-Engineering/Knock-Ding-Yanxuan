@@ -13,9 +13,8 @@ module.exports = {
 	// devServer: {
 	// 	proxy: {
 	// 		"/api": {
-	// 			target      : "http://gmall-h5-api.atguigu.cn", //代理转发路径
+	// 			target      : process.env.VUE_APP_BASE_URL, //代理转发路径
 	// 			pathRewrites: { "^/api": "" }, //匹配字符串
-	// 			ws          : true, //支持websocket
 	// 			changeOrigin: true //跨域
 	// 		}
 	// 	}
