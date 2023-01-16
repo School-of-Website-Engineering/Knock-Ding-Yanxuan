@@ -74,18 +74,18 @@ export default {
 	data() {
 		return {
 			isShowFrom: true,
-			msg       : "请按住滑块，拖动对应位置",
+			msg: "请按住滑块，拖动对应位置",
 			//手机号
-			phoneNum  : "19183879605",
+			phoneNum: "19183879605",
 			//验证码
-			codeText  : "获取验证码",
-			SMScode   : "156"
+			codeText: "获取验证码",
+			SMScode: "156",
 		};
 	},
 	methods: {
 		...mapMutations({
 			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
-			setIsShowCartModal : "loginStatus/setLoginStatus"
+			setIsShowCartModal: "loginStatus/setLoginStatus",
 		}),
 		close() {
 			this.setIsShowLoginModal(false);
@@ -106,15 +106,14 @@ export default {
 			let res = null;
 			if (uuid) {
 				res = await reqBindPhone({
-					phone     : this.phoneNum.trim(),
+					phone: this.phoneNum.trim(),
 					verifyCode: this.SMScode.trim(),
-					uuid
+					uuid,
 				});
-			}
-			else {
+			} else {
 				res = await reqLogin({
-					phone     : this.phoneNum.trim(),
-					verifyCode: this.SMScode.trim()
+					phone: this.phoneNum.trim(),
+					verifyCode: this.SMScode.trim(),
 				});
 			}
 			if (!this.verify()) {
@@ -179,8 +178,7 @@ export default {
 			if (res.code === 0 || res.code === 400) {
 				this.countDown();
 				this.$message.success("验证码已发送");
-			}
-			else {
+			} else {
 				this.$message.error(res.msg);
 			}
 		},
@@ -192,21 +190,21 @@ export default {
 			// 微信登录第一步：申请微信登录二维码
 			let _this = this;
 			new WxLogin({
-				id          : "weixin",
-				appid       : "wx67cfaf9e3ad31a0d", // 这个appid要填死
-				scope       : "snsapi_login",
+				id: "weixin",
+				appid: "wx67cfaf9e3ad31a0d", // 这个appid要填死
+				scope: "snsapi_login",
 				// 扫码成功后重定向的接口
 				redirect_uri: "https://sc.wolfcode.cn/cms/wechatUsers/shop/PC",
 				// state填写编码后的url
-				state       : encodeURIComponent(
-					window.btoa("http://127.0.0.1:8080" + _this.$route.path)
+				state: encodeURIComponent(
+					window.btoa("http://127.0.0.1:8080" + _this.$route.path),
 				),
 				// 调用样式文件
 				href:
-					"data:text/css;base64,Lyogd3hsb2dpbi5jc3MgKi8NCi5pbXBvd2VyQm94IC50aXRsZSwgLmltcG93ZXJCb3ggLmluZm97DQogIGRpc3BsYXk6IG5vbmU7DQp9DQoNCi5pbXBvd2VyQm94IC5xcmNvZGV7DQogIG1hcmdpbi10b3A6IDIwcHg7DQp9"
+					"data:text/css;base64,Lyogd3hsb2dpbi5jc3MgKi8NCi5pbXBvd2VyQm94IC50aXRsZSwgLmltcG93ZXJCb3ggLmluZm97DQogIGRpc3BsYXk6IG5vbmU7DQp9DQoNCi5pbXBvd2VyQm94IC5xcmNvZGV7DQogIG1hcmdpbi10b3A6IDIwcHg7DQp9",
 			});
-		}
-	}
+		},
+	},
 };
 </script>
 
