@@ -107,15 +107,15 @@ img {
 	line-height: 24px;
 }
 .footer-phone p {
-    font-family: MicrosoftYaHei;
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    letter-spacing: 0px;
-    color: #7d879a;
+	font-family: MicrosoftYaHei;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #7d879a;
 }
 .footer-relation {
-    flex: 1;
-    margin-top: 86px;
+	flex: 1;
+	margin-top: 86px;
 }
 </style>

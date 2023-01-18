@@ -31,10 +31,19 @@
 import { mapMutations, mapState } from "vuex";
 import { reqQrcodeLogin } from "@/request/api";
 export default {
+	name: "TopBar",
 	data() {
 		return { cartTotal: 0 };
 	},
-	name   : "TopBar",
+	watch: {
+		"$route.path": {
+			handler(newVal, oldVal) {
+				console.log("sdf", newVal, oldVal);
+				const sessionToken = sessionStorage.getItem("token");
+				this.isLogined(Boolean(sessionToken));
+			}
+		}
+	},
 	methods: {
 		...mapMutations({
 			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
