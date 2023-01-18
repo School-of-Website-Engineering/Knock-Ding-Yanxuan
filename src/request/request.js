@@ -8,7 +8,7 @@ import axios from "axios";
 const instance = axios.create({
 	baseURL: "http://kumanxuan1.f3322.net:8881/cms",
 	// headers: { "Content-Type": "application/json;charset=UTF-8" },
-	timeout: 7000 // 请求超时时间
+	timeout: 7000, // 请求超时时间
 });
 //请求拦截器
 instance.interceptors.request.use(
@@ -19,7 +19,7 @@ instance.interceptors.request.use(
 	},
 	(error) => {
 		return Promise.reject(error);
-	}
+	},
 );
 //响应拦截器
 instance.interceptors.response.use(
@@ -30,6 +30,6 @@ instance.interceptors.response.use(
 	},
 	(error) => {
 		return Promise.reject(error);
-	}
+	},
 );
 export default instance;
