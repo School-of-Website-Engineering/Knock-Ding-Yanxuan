@@ -34,22 +34,20 @@ export default {
 	data() {
 		return { cartTotal: 0 };
 	},
-	name: "TopBar",
+	name   : "TopBar",
 	methods: {
 		...mapMutations({
 			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
-			setLoginStatus: "loginStatus/setLoginStatus",
+			setLoginStatus     : "loginStatus/setLoginStatus"
 		}),
 		login() {
 			// 触发登录弹窗
 			this.setIsShowLoginModal(true);
-		},
+		}
 	},
-	computed: {
-		...mapState({ isLogined: (state) => state.loginStatus.isLogined }),
-	},
+	computed: {...mapState({ isLogined: (state) => state.loginStatus.isLogined })},
 	created() {
-		setTimeout(async () => {
+		setTimeout(async() => {
 			let loginCode = this.$route.query.code;
 			if (loginCode) {
 				const res = await reqQrcodeLogin({ code: loginCode });
@@ -60,17 +58,19 @@ export default {
 					this.setLoginStatus(true);
 					//清除地址栏code
 					await this.$router.push("/home");
-				} else if (res.code === 400) {
+				}
+				else if (res.code === 400) {
 					this.$message.error(res.msg);
 					setIsShowLoginModal(true);
-				} else if (res.code === 407) {
+				}
+				else if (res.code === 407) {
 					this.$message.warning("请使用手机号绑定登录微信");
 					sessionStorage.setItem("loginUuid", res.uuid);
 					setIsShowLoginModal(true);
 				}
 			}
 		}, 100);
-	},
+	}
 };
 </script>
 
