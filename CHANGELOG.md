@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.0...v1.1.1) (2023-01-19)
+
+
+### Bug Fixes
+
+* 使用"$nextTick"修复扫码登录bug ([341b0dd](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/commit/341b0dd409df852430fd41246ec9cd5bba806e16))
+
 ## [1.1.0](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.0.6...v1.1.0) (2023-01-19)
 
 
