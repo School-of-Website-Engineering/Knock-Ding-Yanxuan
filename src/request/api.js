@@ -4,6 +4,9 @@ import qs from "qs";
 //精品推荐
 export const reqGetRecommended = () => request.get("/products/recommend");
 
+//热门兑换
+export const reqGetHot = () => request.get("/products/hot");
+
 //短信验证码
 export const reqGetSmsCode = (params) => request.post("/sendSMS", qs.stringify( params ));
 

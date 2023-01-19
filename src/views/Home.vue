@@ -43,6 +43,7 @@
 <script>
 import JfTitle from "@/components/home/JfTitle";
 import List from "@/components/home/List";
+import { reqGetHot, reqGetRecommended } from "@/request/api";
 export default {
 	name      : "Home",
 	components: { JfTitle, List },
@@ -59,7 +60,14 @@ export default {
 			remenArr  : []
 		};
 	},
-	created() {}
+	async created() {
+		// 精品
+		const { data: boutique } = await reqGetRecommended();
+		this.jingpinArr = boutique.data.records;
+		// 热门
+		const { data: popular } = await reqGetHot();
+		this.remenArr = popular.data.records;
+	}
 };
 </script>
 
