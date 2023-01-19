@@ -37,5 +37,12 @@ export default [
 		component: () =>
 			import(/* webpackChunkName: "free" */ "@/views/Free"),
 		name: "free"
+	},
+	//详情页
+	{
+		path     : "/detail",
+		component: () =>
+			import(/* webpackChunkName: "detail" */ "@/views/Details"),
+		name: "detail"
 	}
 ];

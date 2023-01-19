@@ -21,3 +21,6 @@ export const reqBindPhone = (params) => request.post("/wechatUsers/binding", qs.
 
 //获取用户信息
 export const reqGetUserInfo = () => request.get("/shop/userProfiles");
+
+//商品详情
+export const reqGetDetail = (id) => request.get(`/products/${id}`);
