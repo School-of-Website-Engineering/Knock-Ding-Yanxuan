@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapMutations, mapState, mapActions } from "vuex";
 import { reqQrcodeLogin } from "@/request/api";
 export default {
 	name: "TopBar",
@@ -47,8 +47,10 @@ export default {
 	methods: {
 		...mapMutations({
 			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
-			setLoginStatus     : "loginStatus/setLoginStatus"
+			setLoginStatus     : "loginStatus/setLoginStatus",
+			initUserInfo       : "userInfo/initUserInfo"
 		}),
+		...mapActions({ asyncGetUserInfo: "userInfo/asyncGetUserInfo" }),
 		login() {
 			// 触发登录弹窗
 			this.setIsShowLoginModal(true);
@@ -89,6 +91,14 @@ export default {
 				//正常登陆
 				let sessionToken = sessionStorage.getItem("token");
 				this.setLoginStatus(Boolean(sessionToken));
+				if (sessionToken) {
+					//有登录获取用户信息
+					await this.asyncGetUserInfo();
+				}
+				else {
+					//没有登录,初始化用户信息
+					await this.initUserInfo();
+				}
 			}
 		}, 100);
 	}
