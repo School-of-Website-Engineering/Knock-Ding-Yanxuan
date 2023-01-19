@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.0.6...v1.1.0) (2023-01-19)
+
+
+### Features
+
+* 添加获取用户信息接口 ([563c17a](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/commit/563c17a87f97515bc33d5e45426efcee425ec42d))
+
 ## [1.0.6](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.0.5...v1.0.6) (2023-01-18)
 
 
