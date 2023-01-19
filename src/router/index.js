@@ -45,6 +45,6 @@ export default  new VueRouter({
 		return { y: 0 };
 	},
 	base: process.env.BASE_URL,
-	mode: "history"
+	mode: "hash"
 });
 
