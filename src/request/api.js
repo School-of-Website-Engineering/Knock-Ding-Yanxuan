@@ -15,3 +15,6 @@ export const reqQrcodeLogin = (params) => request.post("/wechatUsers/PCLogin", q
 
 //绑定手机号
 export const reqBindPhone = (params) => request.post("/wechatUsers/binding", qs.stringify( params ));
+
+//获取用户信息
+export const reqGetUserInfo = () => request.get("/shop/userProfiles");
