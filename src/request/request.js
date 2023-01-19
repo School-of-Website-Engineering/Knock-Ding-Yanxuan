@@ -15,6 +15,11 @@ instance.interceptors.request.use(
 	(config) => {
 		//请求拦截器中，展示进度条
 		NProgress.start();
+		//有没有token
+		const token = sessionStorage.getItem("token");
+		if (token) {
+			config.headers["x-auth-token"] = token;
+		}
 		return config;
 	},
 	(error) => {

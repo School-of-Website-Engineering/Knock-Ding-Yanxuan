@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 import { reqBindPhone, reqGetSmsCode, reqLogin } from "@/request/api";
 export default {
 	data() {
@@ -87,6 +87,7 @@ export default {
 			setIsShowLoginModal: "isShowLoginModal/setIsShowLoginModal",
 			setIsShowCartModal : "loginStatus/setLoginStatus"
 		}),
+		...mapActions({ asyncGetUserInfo: "userInfo/asyncGetUserInfo" }),
 		close() {
 			this.setIsShowLoginModal(false);
 		},
@@ -135,11 +136,14 @@ export default {
 			this.close();
 			sessionStorage.setItem("token", res["x-auth-token"]);
 			this.setIsShowCartModal(true);
+			//删除uuid
 			if (uuid) {
 				sessionStorage.removeItem("loginUuid");
 				//清除地址栏code
 				await this.$router.push("/home");
 			}
+			//获取用户信息
+			await this.asyncGetUserInfo();
 		},
 		verify() {
 			//正则验证手机号

@@ -1,7 +1,7 @@
 <template>
 	<div class="root">
 		<!-- 顶部 -->
-		<TopBar></TopBar>
+		<TopBar :key="topBarKeyValue"></TopBar>
 		<Header></Header>
 		<!-- 路由出口 -->
 		<router-view></router-view>
@@ -22,7 +22,7 @@ import { mapState } from "vuex";
 
 export default {
 	data() {
-		return {};
+		return {topBarKeyValue: 0};
 	},
 	name      : "App",
 	//注册组件
@@ -31,6 +31,16 @@ export default {
 		Header,
 		Footer,
 		Login
+	},
+	watch: {
+		"$route.path": {
+			deep: true,
+			handler(newVal, oldVal) {
+				if (newVal !== oldVal) {
+					this.topBarKeyValue++;
+				}
+			}
+		}
 	},
 	// 计算属性
 	computed: {
