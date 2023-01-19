@@ -1,11 +1,11 @@
 <template>
 	<ul class="list">
-		<li v-for="item in [10, 20, 30, 40]" :key="item">
+		<li v-for="(item,index) in arr" :key="item.id" v-show="index<4">
 			<section>
-				<img src="../../assets/img/listimg.jpg" alt="" />
+				<img :src="`http://sc.wolfcode.cn${item.coverImg}`" alt="" />
 				<div class="bottom-box">
-					<h3>商品标题</h3>
-					<p>200 积分</p>
+					<h3>{{item.name}}</h3>
+					<p>{{ item.coin }} 积分</p>
 					<div class="btn">立即兑换</div>
 				</div>
 				<img
@@ -25,6 +25,7 @@
 
 <script>
 export default {
+	props: ["arr"],
 	data() {
 		return {};
 	},
@@ -41,6 +42,10 @@ export default {
 	flex-wrap: wrap;
 
 	li {
+    & section :nth-child(1) {
+      width: 285px;
+      height: 330px;
+    }
 		&:nth-of-type(4n) {
 			margin-right: 0px;
 		}
