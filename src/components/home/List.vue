@@ -1,10 +1,15 @@
 <template>
 	<ul class="list">
-		<li v-for="(item,index) in arr" :key="item.id" v-show="index<4">
+		<li
+			v-for="(item, index) in arr"
+			:key="item.id"
+			v-show="index < 4"
+			@click="goToDetails(item.id)"
+		>
 			<section>
 				<img :src="`http://sc.wolfcode.cn${item.coverImg}`" alt="" />
 				<div class="bottom-box">
-					<h3>{{item.name}}</h3>
+					<h3>{{ item.name }}</h3>
 					<p>{{ item.coin }} 积分</p>
 					<div class="btn">立即兑换</div>
 				</div>
@@ -29,7 +34,11 @@ export default {
 	data() {
 		return {};
 	},
-	methods: {}
+	methods: {
+		goToDetails(id) {
+			this.$router.push(`/detail?id=${id}`);
+		}
+	}
 };
 </script>
 
@@ -42,10 +51,10 @@ export default {
 	flex-wrap: wrap;
 
 	li {
-    & section :nth-child(1) {
-      width: 285px;
-      height: 330px;
-    }
+		& section :nth-child(1) {
+			width: 285px;
+			height: 330px;
+		}
 		&:nth-of-type(4n) {
 			margin-right: 0px;
 		}
