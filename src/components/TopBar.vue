@@ -64,7 +64,7 @@ export default {
 		})
 	},
 	created() {
-		setTimeout(async() => {
+		this.$nextTick().then(async() => {
 			//扫码登录
 			let loginCode = this.$route.query.code;
 			if (loginCode) {
@@ -76,6 +76,8 @@ export default {
 					this.setLoginStatus(true);
 					//清除地址栏code
 					await this.$router.push("/home");
+					//获取用户信息
+					await this.asyncGetUserInfo();
 				}
 				else if (res.code === 400) {
 					this.$message.error(res.msg);
@@ -100,7 +102,7 @@ export default {
 					await this.initUserInfo();
 				}
 			}
-		}, 100);
+		});
 	}
 };
 </script>
