@@ -4,7 +4,7 @@
 		<TopBar :key="topBarKeyValue"></TopBar>
 		<Header></Header>
 		<!-- 路由出口 -->
-		<router-view></router-view>
+		<router-view @fn="reloadTopBar"></router-view>
 		<Footer></Footer>
 
 		<!-- 登录 -->
@@ -22,7 +22,7 @@ import { mapState } from "vuex";
 
 export default {
 	data() {
-		return {topBarKeyValue: 0};
+		return { topBarKeyValue: 0 };
 	},
 	name      : "App",
 	//注册组件
@@ -48,6 +48,11 @@ export default {
 			isShowLoginModal: (state) =>
 				state.isShowLoginModal.isShowLoginModal
 		})
+	},
+	methods: {
+		reloadTopBar() {
+			this.topBarKeyValue++;
+		}
 	}
 };
 </script>
