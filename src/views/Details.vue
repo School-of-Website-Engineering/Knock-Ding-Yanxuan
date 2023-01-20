@@ -96,17 +96,17 @@
 			</aside>
 		</main>
 		<ul class="tabs">
-			<li class="active">
+			<li :class="flag ? 'active' : ''" @click="flag = true">
 				礼品详情
 			</li>
-			<li>
+			<li :class="!flag ? 'active' : ''" @click="flag = false">
 				常见问题
 			</li>
 		</ul>
-		<div>
+		<div v-show="flag" v-html="productInfo.description">
 			<!-- 商品详情的内容盒子 -->
 		</div>
-		<div class="issue">
+		<div class="issue" v-show="!flag">
 			<!-- 常见问题的内容盒子 -->
 			<h4>兑换后运费如何收取？</h4>
 			<p>
@@ -164,7 +164,9 @@ export default {
 			themYouCanBuy: [],
 			// 商品详情的数据
 			productInfo  : {},
-			opacity      : 0
+			opacity      : 0,
+			//问题切换
+			flag         : true
 		};
 	},
 	created() {
@@ -185,8 +187,14 @@ export default {
 			this.productInfo = productInfo;
 			this.nav = nav;
 			this.themYouCanBuy = themYouCanBuy;
+			//初始化大图和小图
 			this.productInfo.coverImg = this.productInfo.imgAltas[0].src;
 			this.opacity = 0;
+			//替换商品图片
+			this.productInfo.description = this.productInfo.description.replaceAll(
+				"upload/",
+				this.imgUrl + "/upload/"
+			);
 		},
 		imgTab(i, src) {
 			this.opacity = i;
@@ -196,7 +204,7 @@ export default {
 		// 	this.stepNum === 1 ? (this.stepNum = 1) : this.stepNum--;
 		// },
 		// add() {
-		// 	this.stepNum < this.productInfo.stock
+		// 	this.stepNum <script this.productInfo.stock
 		// 		? this.stepNum++
 		// 		: this.stepNum;
 		// }
