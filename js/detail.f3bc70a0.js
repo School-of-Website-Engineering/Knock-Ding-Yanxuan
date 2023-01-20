@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkknock_ding_yanxuan"]=self["webpackChunkknock_ding_yanxuan"]||[]).push([[167],{7368:function(n,a,t){t.r(a),t.d(a,{default:function(){return l}});var e=function(){var n=this,a=n._self._c;return a("div")},u=[],r=t(735),s={name:"Details",data(){return{}},async created(){const n=this.$route.query.id,{data:a}=await(0,r.ws)(n)}},c=s,i=t(1001),d=(0,i.Z)(c,e,u,!1,null,"464ad988",null),l=d.exports}}]);
-//# sourceMappingURL=detail.f3bc70a0.js.map
