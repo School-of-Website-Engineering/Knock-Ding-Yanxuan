@@ -38,7 +38,7 @@
 import Crumb from "../components/Crumb.vue";
 import List from "../components/home/List.vue";
 import { reqGetGoodsSearch } from "@/request/api";
-import {getClientHeight, getScrollHeight, getScrollTop} from "@/utils"
+import { getClientHeight, getScrollHeight, getScrollTop } from "@/utils";
 export default {
 	data() {
 		return {
@@ -89,7 +89,7 @@ export default {
 	},
 	created() {
 		// this.keyword=路由参数keyword
-		this.keyword = this.$route.query.keyword;
+		this.keyword = this.$route.query.keyword || "";
 		console.log("this.keyword", this.keyword);
 		this.goodsSearch();
 	},
@@ -199,7 +199,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .goods {
 	padding-bottom: 50px;
 	background: #efefef;

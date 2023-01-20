@@ -39,8 +39,13 @@
 			</ul>
 		</div>
 		<div class="search">
-			<input type="text" placeholder="请输入搜索内容" />
-			<button>搜索</button>
+			<input
+				type="text"
+				placeholder="请输入搜索内容"
+				v-model="search"
+				@keyup.enter="search"
+			/>
+			<button @click="toSearch">搜索</button>
 		</div>
 	</header>
 </template>
@@ -49,7 +54,14 @@
 export default {
 	name: "Header",
 	data() {
-		return {};
+		return { search: "" };
+	},
+	methods: {
+		toSearch() {
+			this.$router.push("/goods?keyword=" + this.search);
+			//清空搜索框
+			this.search = "";
+		}
 	}
 };
 </script>
