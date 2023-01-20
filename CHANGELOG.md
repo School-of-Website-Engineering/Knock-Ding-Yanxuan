@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.3...v1.1.4) (2023-01-20)
+
+
+### update
+
+* 更新全部商品、增加搜索 ([033431f](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/commit/033431f73f8bf56c9287bebf32fe1e1dbb5d6476))
+
 ## [1.1.3](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.2...v1.1.3) (2023-01-20)
 
 
