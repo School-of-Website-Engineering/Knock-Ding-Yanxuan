@@ -24,3 +24,6 @@ export const reqGetUserInfo = () => request.get("/shop/userProfiles");
 
 //商品详情
 export const reqGetDetail = (id) => request.get(`/products/${id}`);
+
+//加入购物车
+export const reqAddCart = (params) => request.post("/shop/carts/add", qs.stringify( params ));
