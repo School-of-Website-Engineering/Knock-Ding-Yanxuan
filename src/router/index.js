@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./routes";
+import store from "@/store";
 
 Vue.use(VueRouter);
 
@@ -38,8 +39,7 @@ VueRouter.prototype.replace = function(location, resolve, reject) {
 	}
 };
 
-
-export default  new VueRouter({
+const router = new VueRouter({
 	routes,
 	scrollBehavior() {
 		return { y: 0 };
@@ -48,3 +48,4 @@ export default  new VueRouter({
 	mode: "hash"
 });
 
+export default router;
