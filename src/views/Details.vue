@@ -1,6 +1,6 @@
 <template>
 	<div class="details wrap">
-		<Crumb></Crumb>
+		<Crumb :nav="nav"></Crumb>
 		<main>
 			<div class="content">
 				<div class="l">
