@@ -16,14 +16,16 @@
 						<li
 							v-for="(item, index) in productInfo.imgAltas"
 							:key="index"
-              @mouseenter="imgTab(index, item.src)"
+							@mouseenter="imgTab(index, item.src)"
 						>
 							<img
 								:src="imgUrl + item.src"
 								width="100"
 								height="100"
 								alt=""
-								:style="{ opacity: opacity===index ? 1 : 0.5 }"
+								:style="{
+									opacity: opacity === index ? 1 : 0.5,
+								}"
 							/>
 						</li>
 					</ul>
@@ -35,23 +37,33 @@
 						<div class="score">{{ productInfo.coin }}积分</div>
 					</div>
 					<div class="down">
-						<section>
-							<strong>选择颜色</strong>
+						<section
+							v-for="(item, index) in productInfo.parameterJson"
+							:key="index"
+						>
+							<strong>{{ item.title }}</strong>
 							<ul>
-								<li class="active">
-									蓝色
-								</li>
-								<li>
-									黄色
+								<li
+									:class="val.currentActivate ? 'active' : ''"
+									v-for="val in item.parameters"
+									:key="val.id"
+									@click="getNewPage(val.id)"
+								>
+									{{ val.title }}
 								</li>
 							</ul>
 						</section>
 						<div style="margin: 10px 0;">
-							<strong>数量 <span>*礼品库存99件</span></strong>
+							<strong
+								>数量
+								<span
+									>*礼品库存{{ productInfo.stock }}件</span
+								></strong
+							>
 							<div class="step">
-								<div class="reduce">-</div>
+								<div class="reduce" @click="stepFn(-1)">-</div>
 								<input type="text" disabled v-model="stepNum" />
-								<div class="add">+</div>
+								<div class="add" @click="stepFn(1)">+</div>
 							</div>
 						</div>
 						<div class="btns">
@@ -70,10 +82,7 @@
 						@click="getNewPage(item.id)"
 					>
 						<div class="l">
-							<img
-								:src="imgUrl + item.img"
-								alt=""
-							/>
+							<img :src="imgUrl + item.img" alt="" />
 						</div>
 						<div class="r">
 							<div class="title">{{ item.name }}</div>
@@ -148,7 +157,7 @@ export default {
 	// },
 	data() {
 		return {
-			stepNum      : 2,
+			stepNum      : 1,
 			//面包屑
 			nav          : [],
 			//可以兑换
@@ -176,10 +185,29 @@ export default {
 			this.productInfo = productInfo;
 			this.nav = nav;
 			this.themYouCanBuy = themYouCanBuy;
+			this.productInfo.coverImg = this.productInfo.imgAltas[0].src;
+			this.opacity = 0;
 		},
-		imgTab(i,src) {
-			this.opacity = i
-      this.productInfo.coverImg =src
+		imgTab(i, src) {
+			this.opacity = i;
+			this.productInfo.coverImg = src;
+		},
+		// redu() {
+		// 	this.stepNum === 1 ? (this.stepNum = 1) : this.stepNum--;
+		// },
+		// add() {
+		// 	this.stepNum < this.productInfo.stock
+		// 		? this.stepNum++
+		// 		: this.stepNum;
+		// }
+		stepFn(val) {
+			if (val === -1 && this.stepNum === 1) {
+				return;
+			}
+			else if (val === 1 && this.stepNum >= this.productInfo.stock) {
+				return;
+			}
+			this.stepNum += val;
 		}
 	}
 };
@@ -270,8 +298,8 @@ export default {
 							margin-right: 20px;
 							margin-bottom: 11px;
 							&.active {
-								border-color: #c0c0c0;
-								color: #c0c0c0;
+								border-color: #0a328d;
+								color: #0a328d;
 							}
 						}
 					}
@@ -399,10 +427,10 @@ export default {
 					}
 					&:hover {
 						img {
-							border: 1px solid #c0c0c0;
+							border: 1px solid #0a328d;
 						}
 						.title {
-							color: #c0c0c0;
+							color: #0a328d;
 						}
 					}
 				}
