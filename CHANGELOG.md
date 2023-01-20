@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.5...v1.1.6) (2023-01-20)
+
+
+### update
+
+* 添加路由守卫 ([1e01b36](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/commit/1e01b36bc2280dfa38765442d371103367a40a5f))
+
 ## [1.1.5](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.4...v1.1.5) (2023-01-20)
 
 
