@@ -7,7 +7,7 @@
 			@click="goToDetails(item.id)"
 		>
 			<section>
-				<img :src="`http://sc.wolfcode.cn${item.coverImg}`" alt="" />
+				<img :src="imgUrl+item.coverImg" alt="" />
 				<div class="bottom-box">
 					<h3>{{ item.name }}</h3>
 					<p>{{ item.coin }} 积分</p>
