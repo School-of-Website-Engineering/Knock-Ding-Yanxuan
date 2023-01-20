@@ -5,25 +5,27 @@
 			<div class="content">
 				<div class="l">
 					<div class="bigImg">
-						<!-- <img
-              :src="'https://sc.wolfcode.cn' + productInfo.coverImg"
-              width="100%"
-              height="100%"
-              alt=""
-            /> -->
+						<img
+							:src="imgUrl + productInfo.coverImg"
+							width="100%"
+							height="100%"
+							alt=""
+						/>
 					</div>
 					<ul>
-						<li>
-							<!-- <img
-                :src="'https://sc.wolfcode.cn' + item.src"
-                width="100"
-                height="100"
-                alt=""
-              /> -->
+						<li
+							v-for="(item, index) in productInfo.imgAltas"
+							:key="index"
+              @mouseenter="imgTab(index, item.src)"
+						>
+							<img
+								:src="imgUrl + item.src"
+								width="100"
+								height="100"
+								alt=""
+								:style="{ opacity: opacity===index ? 1 : 0.5 }"
+							/>
 						</li>
-						<li></li>
-						<li></li>
-						<li></li>
 					</ul>
 				</div>
 				<div class="r">
@@ -65,10 +67,13 @@
 					<li
 						v-for="item in themYouCanBuy"
 						:key="item.id"
-						@click="$router.push(`/detail?id=${item.id}`)"
+						@click="getNewPage(item.id)"
 					>
 						<div class="l">
-							<img :src="imgUrl + item.img" alt="" />
+							<img
+								:src="imgUrl + item.img"
+								alt=""
+							/>
 						</div>
 						<div class="r">
 							<div class="title">{{ item.name }}</div>
@@ -133,14 +138,14 @@ import Crumb from "@/components/Crumb";
 import { reqGetDetail } from "@/request/api";
 export default {
 	components: { Crumb },
-	watch     : {
-		"$route.query.id": {
-			handler() {
-				//刷新页面
-				this.$router.go(0);
-			}
-		}
-	},
+	// watch     : {
+	// 	"$route.query.id": {
+	// 		handler() {
+	// 			//刷新页面
+	// 			this.$router.go(0);
+	// 		}
+	// 	}
+	// },
 	data() {
 		return {
 			stepNum      : 2,
@@ -149,16 +154,33 @@ export default {
 			//可以兑换
 			themYouCanBuy: [],
 			// 商品详情的数据
-			productInfo  : {}
+			productInfo  : {},
+			opacity      : 0
 		};
 	},
-	async created() {
+	created() {
 		const goodsId = this.$route.query.id;
-		const { data: res } = await reqGetDetail(goodsId);
-		const { productInfo, nav, themYouCanBuy } = res;
-		this.productInfo = productInfo;
-		this.nav = nav;
-		this.themYouCanBuy = themYouCanBuy;
+		this.getDetailsInfo(goodsId);
+	},
+	methods: {
+		getNewPage(id) {
+			this.$router.push({
+				path : "/detail",
+				query: { id }
+			});
+			this.getDetailsInfo(id);
+		},
+		async getDetailsInfo(goodsId) {
+			const { data: res } = await reqGetDetail(goodsId);
+			const { productInfo, nav, themYouCanBuy } = res;
+			this.productInfo = productInfo;
+			this.nav = nav;
+			this.themYouCanBuy = themYouCanBuy;
+		},
+		imgTab(i,src) {
+			this.opacity = i
+      this.productInfo.coverImg =src
+		}
 	}
 };
 </script>
@@ -186,16 +208,16 @@ export default {
 					li {
 						width: 100px;
 						height: 100px;
-						background-color: #cff;
+						// background-color: #cff;
 						cursor: pointer;
-						img {
-							filter: brightness(50%);
-						}
-						&:hover {
-							img {
-								filter: brightness(100%);
-							}
-						}
+						// img {
+						// 	filter: brightness(60%);
+						// }
+						// &:hover {
+						// 	img {
+						// 		filter: brightness(100%);
+						// 	}
+						// }
 					}
 				}
 			}
