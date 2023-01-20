@@ -67,7 +67,9 @@
 							</div>
 						</div>
 						<div class="btns">
-							<div class="addToCart">加入购物车</div>
+							<div class="addToCart" @click="addToCart">
+								加入购物车
+							</div>
 							<div class="buyNow">立即购买</div>
 						</div>
 					</div>
@@ -144,7 +146,7 @@
 
 <script>
 import Crumb from "@/components/Crumb";
-import { reqGetDetail } from "@/request/api";
+import { reqAddCart, reqGetDetail } from "@/request/api";
 export default {
 	components: { Crumb },
 	// watch     : {
@@ -216,6 +218,24 @@ export default {
 				return;
 			}
 			this.stepNum += val;
+		},
+		//加入购物车
+		async addToCart() {
+			const goodsId = this.$route.query.id;
+			const res = await reqAddCart({
+				productId: goodsId,
+				total    : this.stepNum,
+				modified : 1
+			});
+			console.log(res);
+			//加入成功
+			if (res.code === 0) {
+				this.$message.success("加入购物车成功");
+			}
+			//加入失败
+			else {
+				this.$message.error(res.message);
+			}
 		}
 	}
 };
