@@ -231,6 +231,8 @@ export default {
 			//加入成功
 			if (res.code === 0) {
 				this.$message.success("加入购物车成功");
+				//topBar的购物车数量重载
+				this.$emit("fn");
 			}
 			//加入失败
 			else {

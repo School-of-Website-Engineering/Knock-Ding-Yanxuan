@@ -27,3 +27,6 @@ export const reqGetDetail = (id) => request.get(`/products/${id}`);
 
 //加入购物车
 export const reqAddCart = (params) => request.post("/shop/carts/add", qs.stringify( params ));
+
+//商品搜索
+export const reqGetGoodsSearch = (params) => request.get("/products", { params });
