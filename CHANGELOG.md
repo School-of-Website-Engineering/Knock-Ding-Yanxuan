@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.7...v1.2.0) (2023-01-21)
+
+
+### Features
+
+* Done! ([3329e35](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/commit/3329e35c94225d2db21bc7914b1c7783ec4d4823))
+
 ## [1.1.7](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.6...v1.1.7) (2023-01-21)
 
 
