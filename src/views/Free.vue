@@ -1,18 +1,15 @@
 <template>
-    <div>
-asdfasedfd
-    </div>
+  <div>
+    <NotFound />
+  </div>
 </template>
 
 <script>
+import NotFound from "@/components/NotFound.vue";
 export default {
-	name: "User",
-	data() {
-		return {};
-	}
-}
+	//注册404组件
+	components: {NotFound}
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
