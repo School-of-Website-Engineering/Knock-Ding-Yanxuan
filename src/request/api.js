@@ -33,3 +33,6 @@ export const reqGetGoodsSearch = (params) => request.get("/products", { params }
 
 //获取购物车列表
 export const reqGetCartList = () => request.get("/shop/carts");
+
+//删除购物车商品
+export const reqDeleteCart = (id) => request.delete(`/shop/carts?productIds=${id}`);
