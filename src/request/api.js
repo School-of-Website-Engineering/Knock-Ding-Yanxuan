@@ -30,3 +30,6 @@ export const reqAddCart = (params) => request.post("/shop/carts/add", qs.stringi
 
 //商品搜索
 export const reqGetGoodsSearch = (params) => request.get("/products", { params });
+
+//获取购物车列表
+export const reqGetCartList = () => request.get("/shop/carts");

@@ -12,7 +12,7 @@
 					<li>获取鸡腿</li>
 					<li>叩丁狼官网</li>
 					<li class="btn" @click="login" v-show="!isLogined">登录</li>
-					<li class="cart-btn" v-show="isLogined">
+					<li class="cart-btn" v-show="isLogined"  @click="$router.push('/user/cart')">
 						<img
 							class="cart-img"
 							src="../assets/img/cart.png"

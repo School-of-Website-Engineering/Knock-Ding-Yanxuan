@@ -7,9 +7,8 @@ export default [
 	//首页组件
 	{
 		path     : "/home",
-		component: () =>
-			import(/* webpackChunkName: "home" */ "@/views/Home"),
-		name: "home"
+		component: () => import(/* webpackChunkName: "home" */ "@/views/Home"),
+		name     : "home"
 	},
 	//全部商品组件
 	{
@@ -22,7 +21,19 @@ export default [
 	{
 		path     : "/user",
 		component: () => import(/* webpackChunkName: "user" */ "@/views/User"),
-		name     : "user"
+		name     : "user",
+		redirect : "user/cart",
+		children : [
+			//个人中心-购物车组件
+			{
+				path     : "/user/cart",
+				component: () =>
+					import(
+						/* webpackChunkName: "cart" */ "@/components/user/Cart"
+					),
+				name: "cart"
+			}
+		]
 	},
 	//订单组件
 	{
@@ -34,9 +45,8 @@ export default [
 	//free
 	{
 		path     : "/free",
-		component: () =>
-			import(/* webpackChunkName: "free" */ "@/views/Free"),
-		name: "free"
+		component: () => import(/* webpackChunkName: "free" */ "@/views/Free"),
+		name     : "free"
 	},
 	//详情页
 	{
