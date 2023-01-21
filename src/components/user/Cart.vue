@@ -46,7 +46,7 @@
 					<td>{{ item.coin }}鸡腿</td>
 					<td>
 						<div class="step">
-							<span @click="add(item.id)">-</span>
+							<span>-</span>
 							<input
 								type="text"
 								disabled
@@ -71,7 +71,7 @@
 	</div>
 </template>
 <script>
-import { reqGetCartList } from "@/request/api";
+import { reqGetCartList, reqDeleteCart } from "@/request/api";
 
 export default {
 	data() {
@@ -85,24 +85,49 @@ export default {
 			cartList : []
 		};
 	},
-	async created() {
-		const { data: cartList } = await reqGetCartList();
-		this.cartList = cartList;
-		console.log(this.cartList);
-		//将cartList中的total数量存入stepNum
-		this.cartList.forEach((item) => {
-			this.stepNum.push(item.total);
-		});
-		console.log(this.stepNum);
+	created() {
+		this.getCartList();
 	},
 	methods: {
+		// 获取购物车列表
+		async getCartList() {
+			const { data: cartList } = await reqGetCartList();
+			this.cartList = cartList;
+			console.log(this.cartList);
+			//将cartList中的total数量存入stepNum
+			this.cartList.forEach((item) => {
+				this.stepNum.push(item.total);
+			});
+			console.log(this.stepNum);
+		},
 		// 删除购物车
 		deleteShopCart(id) {
-			console.log(id);
-		},
-    add(id) {
-      console.log(id);
-    }
+			this.$confirm("确定删除该商品吗？", "提示", {
+				confirmButtonText: "确定",
+				cancelButtonText : "取消",
+				type             : "warning"
+			})
+				.then(async() => {
+					const data = await reqDeleteCart(id);
+					console.log(data);
+					if (data.code === 0) {
+						this.$message({
+							type   : "success",
+							message: "删除成功!"
+						});
+						this.cartList = this.cartList.filter(
+							(item) => item.id !== id
+						);
+					}
+				})
+				.catch(() => {
+					this.$message({
+						type   : "info",
+						message: "已取消删除"
+					});
+				});
+			this.getCartList();
+		}
 	},
 	computed: {
 		// 计算总价
