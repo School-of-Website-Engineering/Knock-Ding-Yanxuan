@@ -39,6 +39,7 @@
 						</li>
 						<li
 							:class="/\/cart/g.test($route.path) ? 'active' : ''"
+							@click="$router.push('user/cart')"
 						>
 							购物车
 						</li>
@@ -114,6 +115,7 @@ export default {
 				msg : "你还没有登录！",
 				type: "danger"
 			});
+			alert("你还没有登录！");
 		}
 	},
 	computed: { ...mapState({ userInfo: (state) => state.userInfo.userInfo }) }
