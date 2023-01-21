@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.6...v1.1.7) (2023-01-21)
+
+
+### update
+
+* 更新购物车组件 ([fae8f31](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/commit/fae8f314403f0c9b2e304c330e165c543915f02d))
+
 ## [1.1.6](https://github.com/School-of-Website-Engineering/Knock-Ding-Yanxuan/compare/v1.1.5...v1.1.6) (2023-01-20)
 
 
