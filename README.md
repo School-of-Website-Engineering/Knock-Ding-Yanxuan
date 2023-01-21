@@ -8,22 +8,16 @@
 [![](https://img.shields.io/crates/l/s)](https://img.shields.io/crates/l/s)
 ![](https://img.shields.io/badge/Vue-%5E2.6.14-success)
 ![](https://img.shields.io/badge/Node-%20%5E16.18.0-brightgreen)
-![](https://img.shields.io/badge/npm-%5E8.19.2-blue)
-
-[LiveDemo](http://sowe.social/Knock-Ding-Yanxuan/)
-
+![](https://img.shields.io/badge/npm-%5E8.19.2-blue) 
 ---
 
 ## 内容列表
 
 - [Knock-Ding-Yanxuan](#knock-ding-yanxuan)
+  - [](#)
   - [内容列表](#内容列表)
-  - [依赖概览](#依赖概览)
-- [Git 规范](#git-规范)
-  - [Git 分支命名](#git-分支命名)
-- [Git Commit Message 格式](#git-commit-message-格式)
-  - [type 提交类型：](#type-提交类型)
-  - [subject 提交描述](#subject-提交描述)
+  - [项目展示](#项目展示)
+  - [Vue2.x 叩丁严选-KOUDINGLANG 积分商城项⽬](#vue2x-叩丁严选-koudinglang-积分商城项)
   - [相关仓库](#相关仓库)
   - [维护者](#维护者)
   - [如何贡献](#如何贡献)
@@ -32,60 +26,33 @@
   - [使用许可](#使用许可)
   - [本地部署](#本地部署)
 
-<!-- 代码行数：![](https://img.shields.io/badge/JSON-22049-green?style=for-the-badge) -->
+## 项目展示
 
-## 依赖概览
+[LiveDemo](http://sowe.social/Knock-Ding-Yanxuan/#/home)
 
-<!-- start dependencies -->
-<!-- end dependencies -->
+![](Demo.gif)
 
-# Git 规范
+---
 
-## Git 分支命名
-
-- `master`：主分支，负责记录上线版本的迭代，该分支代码与线上代码是完全一致的。
-- `develop`：开发分支，该分支记录相对稳定的版本，所有的 feature 分支和 bugfix 分支都从该分支创建。其它分支为短期分支，其完成功能开发之后需要删除
-- `feature/*`：特性（功能）分支，用于开发新的功能，不同的功能创建不同的功能分支，功能分支开发完成并自测通过之后，需要合并到 develop 分支，之后删除该分支。
-- `bugfix/*`：bug 修复分支，用于修复不紧急的 bug，普通 bug 均需要创建 bugfix 分支开发，开发完成自测没问题后合并到 develop 分支后，删除该分支。
-- `release/*`
-  ：发布分支，用于代码上线准备，该分支从 develop 分支创建，创建之后由测试发布到测试环境进行测试，测试过程中发现 bug 需要在该 release 分支上进行 bug 修复，所有 bug 修复完后，上线之前，需要合并该 release 分支到 master 分支和 develop 分支。
-- `hotfix/`\*：紧急 bug 修复分支，该分支只有在紧急情况下使用，从 master 分支创建，用于紧急修复线上 bug，修复完成后，需要合并该分支到 master 分支以便上线，同时需要再合并到 develop 分支。
-
-# Git Commit Message 格式
-
-**type : subject**
-
-## type 提交类型：
-
-- `revert:` 回滚代码
-- `feat:` 新特性
-- `fix:` 错误修复
-- `improvement:` 功能改进
-- `docs:` 文档修改
-- `perf:`性能修改
-- `test:`测试
-- `refactor:` 代码重构
-- `build:` 其他修改, 比如构建流程, 依赖管理
-
-## subject 提交描述
-
-**对应内容是 commit 目的的简短描述，不超过 50 个字符**
+## Vue2.x 叩丁严选-KOUDINGLANG 积分商城项⽬
+项⽬参照地址：http://kumanxuan1.f3322.net:8360/static/store-pc/index.html  
+项⽬备份地址：http://codesohigh.com/store-pc/home  
+真实项⽬参考地址：http://sc.wolfcode.cn/  
+接⼝⽂档地址：http://www.docway.net/project/1h9xcTeAZzV/share/1iUU09vKhMm  
+axios官⽹⽹址：http://www.axios-js.com  
 
 ---
 
 ## 相关仓库
 
-- [Rosy-DR-Code-Ling](https://github.com/School-of-Website-Engineering/Rosy-DR-Code-Ling) — 💌 Rosy-DR-Code-Ling 的 Web 页面
-- [E-commerce](https://github.com/Galaxy-Wish-Star/E-commerce) — 助农电商项目-Vue
-- [Rural-revitalization-agricultural-assistance-services](https://github.com/Galaxy-Wish-Star/Rural-revitalization-agricultural-assistance-services) — 魔绫像素地牢
-- [Back-end-management-system-E-commerce](https://github.com/School-of-Website-Engineering/Back-end-management-system-E-commerce) — Vue2+Element-UI 电商后台管理系统
+-   [Rosy-DR-Code-Ling](https://github.com/School-of-Website-Engineering/Rosy-DR-Code-Ling) — 💌 Rosy-DR-Code-Ling 的 Web 页面
+-   [E-commerce](https://github.com/Galaxy-Wish-Star/E-commerce) — 助农电商项目-Vue
+-   [Rural-revitalization-agricultural-assistance-services](https://github.com/Galaxy-Wish-Star/Rural-revitalization-agricultural-assistance-services) — 魔绫像素地牢
+-   [Back-end-management-system-E-commerce](https://github.com/School-of-Website-Engineering/Back-end-management-system-E-commerce) — Vue2+Element-UI 电商后台管理系统
 
 ## 维护者
 
 [@mason369](https://github.com/mason369)
-
-<!-- [@liusxs](https://github.com/liusxs)
-[@LingASDJ](https://github.com/LingASDJ) -->
 
 ## 如何贡献
 
