@@ -9,12 +9,16 @@
 ![](https://img.shields.io/badge/Vue-%5E2.6.14-success)
 ![](https://img.shields.io/badge/Node-%20%5E16.18.0-brightgreen)
 ![](https://img.shields.io/badge/npm-%5E8.19.2-blue) 
+
 ---
+
+## 项目简介
+Knock-Ding-Yanxuan 是一个基于 Vue2.x 的叩丁严选项目，项目参考了叩丁严选的部分页面，实现了部分功能，包括首页、商品详情页、购物车、订单页、个人中心等页面，项目使用了 Vue2.x + Vue-Router + Vuex + Axios + Element-UI + Echarts + Scss + ES6 等技术，项目数据来源于叩丁严选的接口，项目的后台管理系统使用了 Vue2.x + Vue-Router + Vuex + Axios + Element-UI + Scss + ES6 等技术，项目的后台管理系统的数据来源于叩丁严选的接口。
 
 ## 内容列表
 
 - [Knock-Ding-Yanxuan](#knock-ding-yanxuan)
-  - [](#)
+  - [项目简介](#项目简介)
   - [内容列表](#内容列表)
   - [项目展示](#项目展示)
   - [Vue2.x 叩丁严选-KOUDINGLANG 积分商城项⽬](#vue2x-叩丁严选-koudinglang-积分商城项)
